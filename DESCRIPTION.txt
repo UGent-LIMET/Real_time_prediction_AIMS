@@ -1,0 +1,35 @@
+# Title: Software framework for the processing and statistical analysis of multivariate MS-data
+# Owner: Laboratory of Integrative Metabolomics (LIMET), Ghent university
+# Creator: Dr. Marilyn De Graeve
+# Maintainer: <limet@ugent.be>
+# Repository: Real_time_prediction
+
+# Description: Model is trained with selected ML algorithm for classification of AIMS metabolomics data, prior to real-time prediction.
+#			   Real-time prediction classification of new data using saved ML model from “REIMS_fingerprint_training”.
+#			   Previously build models and the newly predicted samples can be evaluated for correctness, using a saved ML model from “REIMS_fingerprint_training” and the output from “REIMS_fingerprint_prediction”.
+#
+# REIMS_fingerprint_training
+# Input: 
+# -	Configalternative.R
+# -	variableMetadata.txt or matrix3_CopmIDs_all.txt
+# - sampleMetadata.txt
+# Output: 
+# -	pkl file with saved model
+# - Feature importances
+# - Confusion matrix plot
+
+# REIMS_fingerprint_prediction
+# Input:
+# - Configalternative.py
+# - Saved ML model pkl file
+# - variableMetadata.txt or matrix3_CopmIDs_all.txt as the new input feature matrix to predict.
+# Output:
+# - The script will output a Y_pred.txt file with the classifications given by the model on a variable metadata or matrix3_CopmIDs_all file
+ 
+# REIMS_fingerprint_evaluation
+# Input:
+# - Configalternative.py
+# - sampleMetadata.txt
+# - Y_pred.txt file obtained from the “REIMS_fingerprint_prediction” module
+# Output:
+# - The script will output a tabular file with the true and the predicted classifications

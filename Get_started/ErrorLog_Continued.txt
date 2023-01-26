@@ -1,0 +1,29 @@
+# Title: Software framework for the processing and statistical analysis of multivariate MS-data
+# Owner: Laboratory of Integrative Metabolomics (LIMET), Ghent university
+# Creator: Dr. Marilyn De Graeve
+# Maintainer: <limet@ugent.be>
+# Script: ErrorLog_Continued
+
+
+##########Frequently got errors##########
+#### MAIN ####
+FileNotFoundError: [Errno 2] No such file or directory: 'C:'
+= PATH in main.py is not yet adjusted to computer where you're running
+
+FATAL ERROR: Network error: Connection refused
+=Start_Py_pipeline before you startup your experiment, wait few seconds in between so Rbox is ready for use. 
+
+
+#### REIMS_fingerprint_prediction ####
+ValueError: Number of features of the model must match the input. Model n_features is 1150001 and input n_features is 3733 
+=> you cannot train eg on different SOURCE_X (eg. train on VM and predict with M3). 
+=> you cannot use VMs from diff experiment to train and test. intra-experiment prediction only with VM. Use M2/M3 instead.
+
+ValueError: Input contains NaN, infinity or a value too large for dtype('float32').
+= min. 1 MS (column of M3/VM file) contains NAs in intensities, eg. because some preprocessing files (M2s) with and some w/o binning
+
+
+
+
+#
+####################
