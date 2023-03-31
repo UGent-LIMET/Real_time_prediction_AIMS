@@ -54,7 +54,7 @@ def BalanceDF_multi(s1):
 def BalanceDF_by_resampling(s1):
     #balance same amount labels in Mcomp, by adding replicates from smaller groups
     comp_nr = s1["Classification"].unique() 
-    largest = len(s1["Classification"])  #smallest nr of elem in Mcomp groups, start high
+    largest = len(s1["Classification"])  #largest nr of elem in Mcomp groups, start high
     balanced_s1 = pd.DataFrame() #start empty
     for elem in comp_nr:
         #print(elem)        
@@ -62,7 +62,7 @@ def BalanceDF_by_resampling(s1):
         number_of_elem = len(elem_subset)
         #print(number_of_elem)
           
-        if number_of_elem > smallest:
+        if number_of_elem > largest:
             largest = number_of_elem #get smallest amount
     
     for elem in comp_nr: #keep smallest from each group
